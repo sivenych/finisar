@@ -57,7 +57,3 @@ for article in soup.find_all('div', class_='block'):
 #    print('https://finisar.com/'+subtitle.find('a').get('href'), end='')
 #    total_items += 1
 #    print()
-
-#print()
-#print("Total items:")
-#print(total_items)
