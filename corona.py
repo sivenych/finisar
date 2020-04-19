@@ -3,6 +3,11 @@
 import urllib.request
 from bs4 import BeautifulSoup
 import postgresql
+import ssl
+
+ctx = ssl.create_default_context()
+ctx.check_hostname = False
+ctx.verify_mode = ssl.CERT_NONE
 
 url_list = [
     'https://xn--80aesfpebagmfblc0a.xn--p1ai/'
@@ -16,7 +21,7 @@ for url in url_list:
     fp = None
     while fp is None:
         try:
-            fp = urllib.request.urlopen(url)
+            fp = urllib.request.urlopen(url, context=ctx)
         except:
             pass
 
